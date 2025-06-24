@@ -62,10 +62,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <Link href="/" className="inline-block">
             <div className="flex items-center justify-center mb-1">
-              {/* <CarIcon className="h-10 w-10 md:h-12 md:w-12 text-primary mr-2 md:mr-3" /> */}
               <Image
                   src="/logo-android-chrome-192x192.png"
-                  alt="Pazheri Cab Service taxi in Thodupuzha, Kerala"
+                  alt="Logo"
                   width={70}
                   height={70}
                   sizes="(max-width: 72px) 30vw, 30vw"
