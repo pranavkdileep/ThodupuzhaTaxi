@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://thodupuzha-taxi.vercel.app/logo.png",
-        width: 1200,
-        height: 630,
+        width: 512,
+        height: 512,
         alt: "Pazheri Cab Service - Thodupuzha Taxi",
       },
     ],
