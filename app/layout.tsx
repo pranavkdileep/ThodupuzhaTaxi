@@ -34,22 +34,21 @@ export const metadata: Metadata = {
       "Book Pazheri Cab Service for reliable travel from Thodupuzha across Kerala. Airport transfers, tours, weddings. Call us 24/7.",
     type: "website",
     url: "https://thodupuzhataxi.com",
-    // images: [
-    //   {
-    //     url: "https://thodupuzhataxi.com/og-image-pazheri.png",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Pazheri Cab Service - Thodupuzha Taxi",
-    //   },
-    // ],
+    images: [
+      {
+        url: "https://thodupuzha-taxi.vercel.app/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Pazheri Cab Service - Thodupuzha Taxi",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Pazheri Cab Service Thodupuzha | Your Kerala Travel Partner",
     description: "24/7 reliable cabs from Thodupuzha. Airport, tours, weddings. Pazheri Cab Service.",
-    // images: ["https://thodupuzhataxi.com/twitter-image-pazheri.png"],
+    images: ["https://thodupuzha-taxi.vercel.app/logo.png"],
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
