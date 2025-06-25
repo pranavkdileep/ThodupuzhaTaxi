@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import { TaxiCard, type Taxi } from "@/components/taxi-card"
 import {
@@ -9,9 +10,40 @@ import {
   HeartIcon,
   PackageIcon,
   BusIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { useState, useEffect } from "react"
+
+interface ImageSlide {
+  src: string
+  title: string
+}
+
+const imageSlides: ImageSlide[] = [
+  {
+    src: "/placeholder.svg?width=600&height=400&text=Pazheri+Cab+Service",
+    title: "Premium Taxi Service"
+  },
+  {
+    src: "/placeholder.svg?width=600&height=400&text=Airport+Pickup",
+    title: "Airport Transfers"
+  },
+  {
+    src: "/placeholder.svg?width=600&height=400&text=Kerala+Tours",
+    title: "Kerala Tour Packages"
+  },
+  {
+    src: "/placeholder.svg?width=600&height=400&text=Wedding+Transport",
+    title: "Wedding Transportation"
+  },
+  {
+    src: "/placeholder.svg?width=600&height=400&text=Temple+Tours",
+    title: "Temple Tour Services"
+  }
+]
 
 const taxisData: Taxi[] = [
   {
@@ -56,6 +88,24 @@ const WHATSAPP_CONTACT_NUMBER = "919544047655"
 const CONTACT_EMAIL = "contact@thodupuzhataxi.com"
 
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % imageSlides.length)
+    }, 2000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % imageSlides.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + imageSlides.length) % imageSlides.length)
+  }
+
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground">
       <header className="py-6 md:py-8 bg-black backdrop-blur-md shadow-xl sticky top-0 z-50">
@@ -83,15 +133,62 @@ export default function HomePage() {
         <section id="intro-banner" className="py-12 md:py-16 bg-card">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/placeholder.svg?width=600&height=400&text=Pazheri+Cab+Thodupuzha"
-                  alt="Pazheri Cab Service taxi in Thodupuzha, Kerala"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
+              <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg group">
+                {/* Image Slider */}
+                <div className="relative w-full h-full">
+                  {imageSlides.map((slide, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        index === currentSlide ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      <Image
+                        src={slide.src}
+                        alt={`${slide.title} - Pazheri Cab Service`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                      {/* Title Overlay */}
+                      <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-2 rounded-md">
+                        <h3 className="text-sm md:text-base font-semibold">{slide.title}</h3>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Navigation Arrows */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeftIcon size={20} />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-label="Next image"
+                >
+                  <ChevronRightIcon size={20} />
+                </button>
+
+                {/* Slide Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                  {imageSlides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                        index === currentSlide ? 'bg-white' : 'bg-white/50'
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
+
               <div className="text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
                   Reliable Taxi Service in Thodupuzha
