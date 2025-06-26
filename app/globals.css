@@ -4,65 +4,36 @@
 
 @layer base {
   :root {
-    --background: 240 5% 7%; /* Near Black: #121212 */
+    --background: 0 0% 16%; /* #282828 converted to HSL */
     --foreground: 0 0% 88%; /* Light Gray: #E0E0E0 */
 
-    --card: 240 5% 12%; /* Dark Gray: #1E1E1E */
+    --card: 0 0% 16%; /* Same as background: #282828 */
     --card-foreground: 0 0% 88%; /* Light Gray */
 
-    --popover: 240 5% 7%;
+    --popover: 0 0% 16%; /* Same as background */
     --popover-foreground: 0 0% 88%;
 
-    --primary: 51 100% 50%; /* Bright Yellow: #FFD700 */
-    --primary-foreground: 240 5% 7%; /* Near Black (for text on yellow) */
+    --primary: 42 99% 46%; /* #e8a302 converted to HSL */
+    --primary-foreground: 0 0% 98%; /* White text on the new yellow */
 
-    --secondary: 240 5% 12%; /* Dark Gray */
+    --secondary: 0 0% 16%; /* Same as background */
     --secondary-foreground: 0 0% 88%; /* Light Gray */
 
-    --muted: 240 5% 15%; /* Slightly lighter Dark Gray for muted elements */
+    --muted: 0 0% 16%; /* Same as background */
     --muted-foreground: 0 0% 60%; /* Lighter gray for muted text */
 
-    --accent: 51 100% 55%; /* Slightly brighter/different Yellow for accents */
-    --accent-foreground: 240 5% 7%; /* Near Black */
+    --accent: 42 99% 50%; /* Slightly brighter version of new yellow */
+    --accent-foreground: 0 0% 98%; /* White text */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 20%; /* Darker border: #333333 */
-    --input: 240 5% 20%;
-    --ring: 51 100% 50%; /* Bright Yellow for focus rings */
+    --border: 0 0% 20%; /* Slightly lighter for visibility */
+    --input: 0 0% 16%; /* Same as background */
+    --ring: 42 99% 46%; /* New yellow for focus rings */
 
     --radius: 0.5rem;
   }
-
-  /*
-    If you want to force this theme regardless of system preference
-    and disable a dark/light toggle, you can omit the .dark class.
-    The :root styles will apply as the default (and only) theme.
-  */
-  /*
-  .dark {
-    --background: 240 5% 7%;
-    --foreground: 0 0% 88%;
-    --card: 240 5% 12%;
-    --card-foreground: 0 0% 88%;
-    --popover: 240 5% 7%;
-    --popover-foreground: 0 0% 88%;
-    --primary: 51 100% 50%;
-    --primary-foreground: 240 5% 7%;
-    --secondary: 240 5% 12%;
-    --secondary-foreground: 0 0% 88%;
-    --muted: 240 5% 15%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 51 100% 55%;
-    --accent-foreground: 240 5% 7%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5% 20%;
-    --input: 240 5% 20%;
-    --ring: 51 100% 50%;
-  }
-  */
 }
 
 @layer base {
