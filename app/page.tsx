@@ -16,7 +16,8 @@ import {
   ClockIcon,
   DollarSignIcon,
   UsersIcon,
-  StarIcon,
+  Touchpad,
+  Headset,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -29,24 +30,20 @@ interface ImageSlide {
 
 const imageSlides: ImageSlide[] = [
   {
-    src: "/placeholder.svg?width=600&height=400&text=Pazheri+Cab+Service",
-    title: "Premium Taxi Service",
+    src: "/media/munnar.jpg",
+    title: "Munnar Hill Station",
   },
   {
-    src: "/placeholder.svg?width=600&height=400&text=Airport+Pickup",
-    title: "Airport Transfers",
+    src: "/media/alapuzha.jpg",
+    title: "Alappuzha",
   },
   {
-    src: "/placeholder.svg?width=600&height=400&text=Kerala+Tours",
-    title: "Kerala Tour Packages",
+    src: "/media/padmanabha.jpg",
+    title: "Sree Padmanabhaswamy Temple",
   },
   {
-    src: "/placeholder.svg?width=600&height=400&text=Wedding+Transport",
-    title: "Wedding Transportation",
-  },
-  {
-    src: "/placeholder.svg?width=600&height=400&text=Temple+Tours",
-    title: "Temple Tour Services",
+    src: "/media/sabarimala.jpg",
+    title: "Sabarimala",
   },
 ];
 
@@ -117,53 +114,88 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground">
-      <header className="py-6 md:py-8 bg-transparent top-0 z-50">
+
+<header className="py-6 md:py-8 shadow-sm">
   <div className="container mx-auto px-4">
+
     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+  <div className="bg-white rounded-3xl shadow-sm w-full">
+
       {/* Logo and Company Info */}
-      <Link href="/" className="flex flex-col md:flex-row items-center md:items-start group text-center md:text-left">
+      <Link
+        href="/"
+        className="flex flex-col md:flex-row items-center md:items-start group text-center md:text-left"
+      >
         <Image
           src="/logo.png"
           alt="Pazheri Cab Service Logo"
           width={160}
           height={160}
           sizes="160px"
-          className="object-cover h-60 w-60 md:h-14 md:w-14 mb-2 md:mb-0 md:mr-3 md:mr-4"
+          className="object-cover h-50 w-50 md:h-14 md:w-14 mb-0 md:mb-0 md:mr-3 md:mr-4"
         />
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-primary tracking-tight group-hover:text-primary/90 transition-colors">
+          <h1 className="text-2xl md:text-3xl font-bold text-green-600 tracking-tight group-hover:text-green-500 transition-colors">
             Pazheri Cab Service
           </h1>
-          <p className="text-xs md:text-sm text-primary/80 font-medium leading-tight">
+          <p className="text-xs md:text-sm text-black font-medium leading-tight">
             Your Rides, Our Responsibility
           </p>
-          <p className="text-xs text-muted-foreground mt-0.5 ">
-            Trusted Kerala-wide cab service. 
-            <br/>
-            24×7 availability at Cochin,
-            Trivandrum & Calicut Airports.
-          </p>
         </div>
+        <span className="text-xs md:text-sm text-muted-foreground mt-2 md:mt-0">
+          </span>
+        
       </Link>
+      </div>
+      <div className="flex items-center gap-2">
+      <p className="text-xs text-primary text-center m-2">
+            Trusted Kerala-wide cab service.
+            <br />
+            24×7 availability at Cochin, Trivandrum & Calicut Airports.
+      </p>
+      </div>
 
-      {/* Call Button */}
-      <Button
-        asChild
-        size="lg"
-        className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg w-full md:w-auto"
-      >
-        <a
-          href={`tel:+${WHATSAPP_CONTACT_NUMBER}`}
-          className="flex items-center justify-center gap-2 px-4 py-2 md:px-6 md:py-3"
-        >
-          <PhoneIcon size={18} className="animate-pulse" />
-          <span className="font-semibold text-sm md:text-base">
+
+      {/* Contact Info and Booking Button */}
+      <div className="flex flex-col items-center gap-3 w-full md:w-auto">
+        {/* Phone Number in Text Box */}
+        <div className="flex  items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 w-full md:w-auto">
+          <Headset size={25} className="text-green-600" />
+          <div className="flex flex-col items-start">
+          <span className="text-xs md:text-sm text-gray-600 m-1">
+            Call or WhatsApp us at:
+          </span>
+          <a
+            href={`tel:+${WHATSAPP_CONTACT_NUMBER}`}
+            className="font-semibold text-sm md:text-base text-black hover:text-green-600 transition-colors m-1"
+          >
             +{WHATSAPP_CONTACT_NUMBER.slice(0, 2)}{" "}
             {WHATSAPP_CONTACT_NUMBER.slice(2, 7)}{" "}
             {WHATSAPP_CONTACT_NUMBER.slice(7)}
-          </span>
-        </a>
-      </Button>
+          </a>
+          </div>
+        </div>
+
+        {/* Online Booking Button */}
+        <Button
+          asChild
+          size="lg"
+          className="bg-transparent border-2 border-green-600 text-green-600 hover:bg-green-50 transition-all duration-300 w-full md:w-auto"
+        >
+          <Link
+            href={`https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
+              "Hello Pazheri Cab Service, I'd like to book a taxi from Thodupuzha."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-4 py-2 md:px-6 md:py-3"
+          >
+            <span className="font-semibold text-sm md:text-base">
+              Book Taxi Online
+            </span>
+          </Link>
+        </Button>
+      </div>
     </div>
   </div>
 </header>
@@ -232,10 +264,15 @@ export default function HomePage() {
 
               <div className="text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                Comfortable, Safe & Reliable Taxi Service Across Kerala
+                  Comfortable, Safe & Reliable Taxi Service Across Kerala
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                Pazheri Cabs is one of Kerala’s most trusted taxi services, offering 24×7 cab availability across the state, with quick service at major hubs including Cochin, Trivandrum, and Calicut airports. While our head office is based in Thodupuzha, our operations extend throughout every corner of Kerala.
+                  Pazheri Cabs is one of Kerala’s most trusted taxi services,
+                  offering 24×7 cab availability across the state, with quick
+                  service at major hubs including Cochin, Trivandrum, and
+                  Calicut airports. While our head office is based in
+                  Thodupuzha, our operations extend throughout every corner of
+                  Kerala.
                 </p>
                 <p className="text-md text-muted-foreground/80 mb-8">
                   Your journey, our priority. Book your ride with us today!
@@ -283,11 +320,18 @@ export default function HomePage() {
                   icon: PlaneTakeoffIcon,
                   text: "Airport Pickup/Drop (Cochin, Calicut)",
                 },
+                {
+                  icon: Touchpad,
+                  text: "Mobile Advertising - Custom Vechicle Wraps",
+                },
                 { icon: PackageIcon, text: "All Kerala Tour Packages" },
                 { icon: LandmarkIcon, text: "Temple Tour Packages" },
                 { icon: HeartIcon, text: "Wedding Trips" },
                 { icon: CarIcon, text: "Corporate & Business Trips" },
-                { icon: BusIcon, text: "Outstation Travel across Kerala & South India" },
+                {
+                  icon: BusIcon,
+                  text: "Outstation Travel across Kerala & South India",
+                },
               ].map((service, index) => (
                 <div
                   key={index}
@@ -313,33 +357,39 @@ export default function HomePage() {
                 {
                   icon: CarIcon,
                   text: "Kerala's most dependable taxi service",
-                  description: "Trusted by thousands of customers across Kerala for reliable transportation"
+                  description:
+                    "Trusted by thousands of customers across Kerala for reliable transportation",
                 },
                 {
                   icon: ShieldCheckIcon,
                   text: "100% safety assurance for every trip",
-                  description: "Your safety is our top priority with well-maintained vehicles and safety protocols"
+                  description:
+                    "Your safety is our top priority with well-maintained vehicles and safety protocols",
                 },
                 {
                   icon: ClockIcon,
                   text: "Trained, courteous, on-time drivers",
-                  description: "Professional drivers who know Kerala's roads and prioritize punctuality"
+                  description:
+                    "Professional drivers who know Kerala's roads and prioritize punctuality",
                 },
                 {
                   icon: DollarSignIcon,
                   text: "All vehicle types at the best price",
-                  description: "From hatchbacks to buses, competitive rates for every budget and need"
+                  description:
+                    "From hatchbacks to buses, competitive rates for every budget and need",
                 },
                 {
                   icon: PlaneTakeoffIcon,
                   text: "24×7 airport pickup & drop availability",
-                  description: "Round-the-clock service at Cochin, Trivandrum & Calicut airports"
+                  description:
+                    "Round-the-clock service at Cochin, Trivandrum & Calicut airports",
                 },
                 {
                   icon: UsersIcon,
                   text: "Thousands of happy riders across the state",
-                  description: "Join our satisfied customer base who trust us for their travel needs"
-                }
+                  description:
+                    "Join our satisfied customer base who trust us for their travel needs",
+                },
               ].map((feature, index) => (
                 <div
                   key={index}
@@ -395,12 +445,15 @@ export default function HomePage() {
         >
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-            A Name You Can Trust — Pazheri Group
+              A Name You Can Trust — Pazheri Group
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-            Pazheri Cab Service is part of the Pazheri Group, a respected name in Kerala known for its excellence in various service sectors.
+              Pazheri Cab Service is part of the Pazheri Group, a respected name
+              in Kerala known for its excellence in various service sectors.
               <br />
-              Built on decades of commitment, customer satisfaction, and community trust, the Pazheri name represents genuine care and professional standards.
+              Built on decades of commitment, customer satisfaction, and
+              community trust, the Pazheri name represents genuine care and
+              professional standards.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <Button
