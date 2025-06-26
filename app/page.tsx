@@ -137,8 +137,10 @@ export default function HomePage() {
           <p className="text-xs md:text-sm text-primary/80 font-medium leading-tight">
             Your Rides, Our Responsibility
           </p>
-          <p className="text-xs text-muted-foreground mt-0.5 hidden md:block">
-            Trusted Kerala-wide cab service. 24×7 availability at Cochin,
+          <p className="text-xs text-muted-foreground mt-0.5 ">
+            Trusted Kerala-wide cab service. 
+            <br/>
+            24×7 availability at Cochin,
             Trivandrum & Calicut Airports.
           </p>
         </div>
