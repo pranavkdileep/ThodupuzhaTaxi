@@ -123,12 +123,12 @@ export default function HomePage() {
       {/* Logo and Company Info */}
       <Link href="/" className="flex flex-col md:flex-row items-center md:items-start group text-center md:text-left">
         <Image
-          src="/logo-android-chrome-192x192.png"
+          src="/logo.png"
           alt="Pazheri Cab Service Logo"
-          width={60}
-          height={60}
-          sizes="60px"
-          className="object-cover h-12 w-12 md:h-14 md:w-14 mb-2 md:mb-0 md:mr-3 md:mr-4"
+          width={160}
+          height={160}
+          sizes="160px"
+          className="object-cover h-60 w-60 md:h-14 md:w-14 mb-2 md:mb-0 md:mr-3 md:mr-4"
         />
         <div>
           <h1 className="text-2xl md:text-3xl font-bold text-primary tracking-tight group-hover:text-primary/90 transition-colors">
