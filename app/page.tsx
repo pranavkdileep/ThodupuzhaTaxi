@@ -220,7 +220,7 @@ export default function HomePage() {
         >
           <Link
             href={`https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
-              "Hello, I'd like to book a taxi from, please give me a call back"
+              "Hello, I'd like to book a taxi, please give me a call back"
             )}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -315,7 +315,7 @@ export default function HomePage() {
                   >
                     <Link
                       href={`https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
-                        "Hello, I'd like to book a taxi from, please give me a call back"
+                        "Hello, I'd like to book a taxi, please give me a call back"
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -493,7 +493,7 @@ export default function HomePage() {
               >
                 <Link
                   href={`https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
-                    "Hello, I'd like to book a taxi from, please give me a call back"
+                    "Hello, I'd like to book a taxi, please give me a call back"
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

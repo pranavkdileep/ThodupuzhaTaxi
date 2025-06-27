@@ -50,7 +50,7 @@ export function TaxiCard({ taxi, whatsappNumber }: TaxiCardProps) {
     e.stopPropagation()
     setCurrentImage((prev) => (prev + 1) % taxi.images.length)
   }
-  const whatsappMessage = "Hello, I'd like to book a taxi from, please give me a call back"
+  const whatsappMessage = "Hello, I'd like to book a taxi, please give me a call back"
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
