@@ -57,19 +57,43 @@ const imageSlides: ImageSlide[] = [
     src: "/media/sp3.jpeg",
     title: "Sree Padmanabhaswamy Temple",
   },
+  {
+    src: "/media/WhatsApp Image 2025-06-27 at 6.29.26 PM (1).jpeg",
+    title: "Sree Padmanabhaswamy Temple",
+  },
+  {
+    src: "/media/WhatsApp Image 2025-06-27 at 6.29.26 PM (2).jpeg",
+    title: "Sree Padmanabhaswamy Temple",
+  },
+  {
+    src: "/media/WhatsApp Image 2025-06-27 at 6.29.26 PM (3).jpeg",
+    title: "Sree Padmanabhaswamy Temple",
+  },
+  {
+    src: "/media/WhatsApp Image 2025-06-27 at 6.29.26 PM.jpeg",
+    title: "Sree Padmanabhaswamy Temple",
+  },
+  {
+    src: "/media/WhatsApp Image 2025-06-27 at 6.29.27 PM (1).jpeg",
+    title: "Sree Padmanabhaswamy Temple",
+  },
+  {
+    src: "/media/WhatsApp Image 2025-06-27 at 6.29.27 PM.jpeg",
+    title: "Sree Padmanabhaswamy Temple",
+  },
 ];
 
 const taxisData: Taxi[] = [
   {
     id: "suv-pazheri",
     name: "SUV",
-    image: "/taxi/inova.png",
+    images: ["/taxi/inovacry.png","/taxi/ergiga.png","/taxi/innova.png","/taxi/hycross.png","/taxi/kiacarens.png"],
     imageAlt: "suv taxi for Pazheri Cab Service",
     description:
       "Spacious & comfortable. Ideal for family trips, long journeys, and outstation travel.",
     pricing: [
-      { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1200/-" },
-      { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 2300/-" },
+      { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1500/-" },
+      { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 3000/-" },
       { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 3200/-" },
     ],
     extraCharges: [
@@ -82,7 +106,7 @@ const taxisData: Taxi[] = [
   {
     id: "sedan-pazheri",
     name: "Sedan",
-    image: "/taxi/sedan.png",
+    images: ["/taxi/sedan/sedan.png","/taxi/sedan/dzire.png"],
     imageAlt: "Black sedan taxi for Pazheri Cab Service",
     description:
       "Comfortable & spacious. Perfect for families, business trips, and longer journeys across Kerala.",
@@ -196,7 +220,7 @@ export default function HomePage() {
         >
           <Link
             href={`https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
-              "Hello Pazheri Cab Service, I'd like to book a taxi from Thodupuzha."
+              "Hello, I'd like to book a taxi from, please give me a call back"
             )}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -233,12 +257,6 @@ export default function HomePage() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover"
                       />
-                      {/* Title Overlay */}
-                      <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-2 rounded-md">
-                        <h3 className="text-sm md:text-base font-semibold">
-                          {slide.title}
-                        </h3>
-                      </div>
                     </div>
                   ))}
                 </div>
@@ -328,21 +346,21 @@ export default function HomePage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {[
+                { icon: PackageIcon, text: "All Kerala Tour Packages" },
                 {
                   icon: PlaneTakeoffIcon,
                   text: "Airport Pickup/Drop (Cochin, Calicut)",
                 },
-                {
-                  icon: Touchpad,
-                  text: "Mobile Advertising - Custom Vechicle Wraps",
-                },
-                { icon: PackageIcon, text: "All Kerala Tour Packages" },
+                { icon: CarIcon, text: "Corporate & Business Trips" },
                 { icon: LandmarkIcon, text: "Temple Tour Packages" },
                 { icon: HeartIcon, text: "Wedding Trips" },
-                { icon: CarIcon, text: "Corporate & Business Trips" },
                 {
                   icon: BusIcon,
                   text: "Outstation Travel across Kerala & South India",
+                },
+                {
+                  icon: Touchpad,
+                  text: "Vehicle Branding",
                 },
               ].map((service, index) => (
                 <div
@@ -356,6 +374,33 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="fleet-rates" className="py-12 md:py-16 bg-black/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-primary">
+              Our Rates
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 justify-items-center items-stretch">
+              {taxisData.map((taxi) => (
+                <TaxiCard
+                  key={taxi.id}
+                  taxi={taxi}
+                  whatsappNumber={WHATSAPP_CONTACT_NUMBER}
+                />
+              ))}
+            </div>
+            <p className="text-center text-muted-foreground mt-10 md:mt-12 text-lg">
+              We also offer{" "}
+              <strong className="text-primary/90">
+                SUVs, Tempo Travellers, and Mini Buses
+              </strong>
+              .
+              <br />
+              Please contact us for custom quotes and availability for your
+              specific needs.
+            </p>
           </div>
         </section>
 
@@ -424,33 +469,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="fleet-rates" className="py-12 md:py-16 bg-black/30">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-primary">
-              Our Rates
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 justify-items-center items-stretch">
-              {taxisData.map((taxi) => (
-                <TaxiCard
-                  key={taxi.id}
-                  taxi={taxi}
-                  whatsappNumber={WHATSAPP_CONTACT_NUMBER}
-                />
-              ))}
-            </div>
-            <p className="text-center text-muted-foreground mt-10 md:mt-12 text-lg">
-              We also offer{" "}
-              <strong className="text-primary/90">
-                SUVs, Tempo Travellers, and Mini Buses
-              </strong>
-              .
-              <br />
-              Please contact us for custom quotes and availability for your
-              specific needs.
-            </p>
-          </div>
-        </section>
-
         <section
           id="contact-cta"
           className="py-16 md:py-20 text-center bg-card/50"
@@ -475,7 +493,7 @@ export default function HomePage() {
               >
                 <Link
                   href={`https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
-                    "Hello Pazheri Cab Service, I'd like to book a taxi from Thodupuzha."
+                    "Hello, I'd like to book a taxi from, please give me a call back"
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Car, Clock, IndianRupee, PhoneOutgoing, PlusCircle } from "lucide-react"
+import { useEffect, useState } from "react"
 
 interface PricingDetail {
   durationDistance: string
@@ -17,7 +18,7 @@ interface ExtraCharge {
 export interface Taxi {
   id: string
   name: string
-  image: string
+  images: string[]
   imageAlt: string
   description: string
   pricing: PricingDetail[]
@@ -30,21 +31,79 @@ interface TaxiCardProps {
 }
 
 export function TaxiCard({ taxi, whatsappNumber }: TaxiCardProps) {
+  const [currentImage, setCurrentImage] = useState(0)
+
+  useEffect(() => {
+    if (taxi.images.length <= 1) return
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % taxi.images.length)
+    }, 2000)
+    return () => clearInterval(timer)
+  }, [taxi.images.length])
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentImage((prev) => (prev - 1 + taxi.images.length) % taxi.images.length)
+  }
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentImage((prev) => (prev + 1) % taxi.images.length)
+  }
   const whatsappMessage = `Hello, I would like to book the ${taxi.name} (ID: ${taxi.id}).`
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <Card className="w-full max-w-md bg-card text-card-foreground border-border shadow-lg overflow-hidden flex flex-col">
       <CardHeader className="p-0">
-        <div className="relative w-full h-56 sm:h-64">
-          <Image
-            src={taxi.image || "/placeholder.svg"}
-            alt={taxi.imageAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
-          />
+        <div className="relative w-full h-56 sm:h-64 group">
+          {taxi.images.map((img, idx) => (
+            <div
+              key={img}
+              className={`absolute inset-0 transition-opacity duration-500 ${idx === currentImage ? "opacity-100" : "opacity-0"}`}
+            >
+              <Image
+                src={img}
+                alt={taxi.imageAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
+          {taxi.images.length > 1 && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                aria-label="Previous image"
+                type="button"
+              >
+                &#8592;
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                aria-label="Next image"
+                type="button"
+              >
+                &#8594;
+              </button>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                {taxi.images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={e => { e.stopPropagation(); setCurrentImage(idx) }}
+                    className={`w-2 h-2 rounded-full ${idx === currentImage ? "bg-white" : "bg-white/50"} transition-colors`}
+                    aria-label={`Go to image ${idx + 1}`}
+                    type="button"
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
+    
         <div className="p-6">
           <CardTitle className="text-3xl font-bold text-primary flex items-center">
             <Car size={28} className="mr-3 text-primary/80" />
