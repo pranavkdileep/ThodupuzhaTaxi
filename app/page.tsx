@@ -34,43 +34,55 @@ const imageSlides: ImageSlide[] = [
     title: "Munnar Hill Station",
   },
   {
-    src: "/media/alapuzha.jpg",
+    src: "/media/ap1.jpeg",
     title: "Alappuzha",
   },
   {
-    src: "/media/padmanabha.jpg",
+    src: "/media/sp.jpeg",
     title: "Sree Padmanabhaswamy Temple",
   },
   {
-    src: "/media/sabarimala.jpg",
+    src: "/media/ap2.jpeg",
+    title: "Alappuzha",
+  },
+  {
+    src: "/media/sabarimala.jpeg",
     title: "Sabarimala",
+  },
+  {
+    src: "/media/sp2.jpeg",
+    title: "Sree Padmanabhaswamy Temple",
+  },
+  {
+    src: "/media/sp3.jpeg",
+    title: "Sree Padmanabhaswamy Temple",
   },
 ];
 
 const taxisData: Taxi[] = [
   {
-    id: "hatchback-pazheri",
-    name: "Hatchback",
-    image: "/placeholder.svg?width=500&height=300&text=Hatchback+Yellow",
-    imageAlt: "Yellow hatchback taxi for Pazheri Cab Service",
+    id: "suv-pazheri",
+    name: "SUV",
+    image: "/taxi/inova.png",
+    imageAlt: "suv taxi for Pazheri Cab Service",
     description:
-      "Economical & agile. Ideal for city rides and small groups in and around Thodupuzha.",
+      "Spacious & comfortable. Ideal for family trips, long journeys, and outstation travel.",
     pricing: [
-      { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 900/-" },
-      { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 1800/-" },
-      { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 2500/-" },
+      { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1200/-" },
+      { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 2300/-" },
+      { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 3200/-" },
     ],
     extraCharges: [
-      { label: "Extra Hours", price: "Rs. 200/-" },
-      { label: "Extra Km. City", price: "Rs. 15/-" },
-      { label: "Outstation (Min. 150 Kms)", price: "Rs. 2600/-" },
-      { label: "Extra Kms (Outstation)", price: "Rs. 14/-" },
+      { label: "Extra Hours", price: "Rs. 275/-" },
+      { label: "Extra Km. City", price: "Rs. 18/-" },
+      { label: "Outstation (Min. 150 Kms)", price: "Rs. 3500/-" },
+      { label: "Extra Kms (Outstation)", price: "Rs. 17/-" },
     ],
   },
   {
     id: "sedan-pazheri",
     name: "Sedan",
-    image: "/placeholder.svg?width=500&height=300&text=Sedan+Black",
+    image: "/taxi/sedan.png",
     imageAlt: "Black sedan taxi for Pazheri Cab Service",
     description:
       "Comfortable & spacious. Perfect for families, business trips, and longer journeys across Kerala.",
