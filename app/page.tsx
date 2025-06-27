@@ -315,7 +315,7 @@ export default function HomePage() {
                   >
                     <Link
                       href={`https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
-                        "Hello Pazheri Cab Service, I'd like to book a taxi from Thodupuzha."
+                        "Hello, I'd like to book a taxi from, please give me a call back"
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
