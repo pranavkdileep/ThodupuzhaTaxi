@@ -122,6 +122,19 @@ const taxisData: Taxi[] = [
       { label: "Extra Kms (Outstation)", price: "Rs. 16/-" },
     ],
   },
+  {
+    id: "traveller-pazheri",
+    name: "Traveller/Mini Bus",
+    images: ["/taxi/Traveller/urbania.png","/taxi/Traveller/traveller.png"],
+    imageAlt: "Traveller taxi for Pazheri Cab Service",
+    description:
+      "Ideal for larger groups. Spacious seating for up to 12 passengers, perfect for family trips, weddings, and corporate events.",
+    pricing: [
+      { durationDistance: "Starting At", price: "Rs. 4000/-" },
+    ],
+    extraCharges: [
+    ],
+  },
 ];
 
 const WHATSAPP_CONTACT_NUMBER = "919544047655";
