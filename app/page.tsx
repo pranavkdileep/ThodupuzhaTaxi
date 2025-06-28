@@ -137,7 +137,7 @@ const taxisData: Taxi[] = [
   },
 ];
 
-const WHATSAPP_CONTACT_NUMBER = "919544047655";
+const WHATSAPP_CONTACT_NUMBER = "917306392309";
 const CONTACT_EMAIL = "contact@thodupuzhataxi.com";
 
 export default function HomePage() {
