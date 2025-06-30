@@ -22,6 +22,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Offercard from "@/components/offercard";
 
 interface ImageSlide {
   src: string;
@@ -94,7 +95,7 @@ const taxisData: Taxi[] = [
     pricing: [
       { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1500/-" },
       { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 3000/-" },
-      { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 3200/-" },
+      { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 4500/-" },
     ],
     extraCharges: [
       { label: "Extra Hours", price: "Rs. 275/-" },
@@ -142,6 +143,7 @@ const CONTACT_EMAIL = "contact@thodupuzhataxi.com";
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showOffer, setShowOffer] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -163,6 +165,13 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground">
+
+      {showOffer && (
+        <Offercard
+        setShowOffer={setShowOffer}
+        WHATSAPP_CONTACT_NUMBER={WHATSAPP_CONTACT_NUMBER}
+        />
+      )}
 
 <header className="py-6 md:py-8 shadow-sm">
   <div className="container mx-auto px-4">
