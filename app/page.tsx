@@ -143,7 +143,7 @@ const CONTACT_EMAIL = "contact@thodupuzhataxi.com";
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showOffer, setShowOffer] = useState(true);
+  const [showOffer, setShowOffer] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
