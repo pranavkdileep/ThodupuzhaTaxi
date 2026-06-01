@@ -31,6 +31,14 @@ interface ImageSlide {
 
 const imageSlides: ImageSlide[] = [
   {
+    src: "/media/car2.png",
+    title: "Munnar",
+  },
+  {
+    src: "/media/car1.png",
+    title: "Munnar",
+  },
+  {
     src: "/media/munnar.jpg",
     title: "Munnar Hill Station",
   },
@@ -94,14 +102,16 @@ const taxisData: Taxi[] = [
       "Spacious & comfortable. Ideal for family trips, long journeys, and outstation travel.",
     pricing: [
       { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1500/-" },
-      { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 3000/-" },
+      { durationDistance: "8 Hrs / 80 Kms (Ertiga)", price: "Rs. 3000/-" },
+      { durationDistance: "8 Hrs / 80 Kms (Innova)", price: "Rs. 3500/-" },
       { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 4500/-" },
     ],
     extraCharges: [
       { label: "Extra Hours", price: "Rs. 275/-" },
-      { label: "Extra Km. City", price: "Rs. 18/-" },
+      { label: "Extra Km. City", price: "Rs. 25/-" },
+      { label: "Extra Km. City (Innova)", price: "Rs. 30/-" },
       { label: "Outstation (Min. 150 Kms)", price: "Rs. 3500/-" },
-      { label: "Extra Kms (Outstation)", price: "Rs. 17/-" },
+      { label: "Extra Kms (Outstation)", price: "Rs. 25/-" },
     ],
   },
   {
@@ -113,14 +123,14 @@ const taxisData: Taxi[] = [
       "Comfortable & spacious. Perfect for families, business trips, and longer journeys across Kerala.",
     pricing: [
       { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1000/-" },
-      { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 2000/-" },
-      { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 2800/-" },
+      { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 2500/-" },
+      { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 3000/-" },
     ],
     extraCharges: [
       { label: "Extra Hours", price: "Rs. 250/-" },
-      { label: "Extra Km. City", price: "Rs. 16/-" },
+      { label: "Extra Km. City", price: "Rs. 20/-" },
       { label: "Outstation (Min. 150 Kms)", price: "Rs. 2800/-" },
-      { label: "Extra Kms (Outstation)", price: "Rs. 16/-" },
+      { label: "Extra Kms (Outstation)", price: "Rs. 20/-" },
     ],
   },
   {
@@ -131,9 +141,10 @@ const taxisData: Taxi[] = [
     description:
       "Ideal for larger groups. Spacious seating for up to 12 passengers, perfect for family trips, weddings, and corporate events.",
     pricing: [
-      { durationDistance: "Starting At", price: "Rs. 4000/-" },
+      { durationDistance: "100Kms", price: "Rs. 8000/-" },
     ],
     extraCharges: [
+      { label: "Extra Kms", price: "Rs. 40/-" },
     ],
   },
 ];
