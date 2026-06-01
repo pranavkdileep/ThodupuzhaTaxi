@@ -23,6 +23,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Offercard from "@/components/offercard";
+import { TourPackagesSlider } from "@/components/tour-packages-slider";
 
 interface ImageSlide {
   src: string;
@@ -409,6 +410,8 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <TourPackagesSlider />
 
         <section id="fleet-rates" className="py-12 md:py-16 bg-black/30">
           <div className="container mx-auto px-4">

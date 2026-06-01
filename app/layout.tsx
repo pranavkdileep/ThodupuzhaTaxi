@@ -10,6 +10,7 @@ const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thodupuzhataxi.com"),
   title: "Thodupuzha Taxi - Pazheri Cab Service | 24/7 Taxi in Kerala",
   description:
     "Pazheri Cab Service offers reliable 24/7 taxi services from Thodupuzha to all over Kerala. Airport pickups (Cochin, Calicut), wedding trips, temple tours, family holidays & more. Book your Hatchback, Sedan, SUV, or Tempo Traveller today!",
