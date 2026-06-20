@@ -32,14 +32,6 @@ interface ImageSlide {
 
 const imageSlides: ImageSlide[] = [
   {
-    src: "/media/car2.png",
-    title: "Munnar",
-  },
-  {
-    src: "/media/car1.png",
-    title: "Munnar",
-  },
-  {
     src: "/media/munnar.jpg",
     title: "Munnar Hill Station",
   },
