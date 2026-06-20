@@ -128,14 +128,13 @@ const taxisData: Taxi[] = [
   },
   {
     id: "traveller-pazheri",
-    name: "Traveller/Mini Bus",
+    name: "Traveller/ Urbania",
     images: ["/taxi/Traveller/urbania.png","/taxi/Traveller/traveller.png"],
     imageAlt: "Traveller taxi for Pazheri Cab Service",
     description:
-      "Ideal for larger groups. Spacious seating for up to 12 passengers, perfect for family trips, weddings, and corporate events.",
+      "Ideal for larger groups. Spacious seating for up to 17 passengers, perfect for family trips, weddings, and corporate events.",
     pricing: [
       { durationDistance: "17 Seat 8 Hrs / 80Kms", price: "Rs. 7000/-" },
-      { durationDistance: "100Kms", price: "Rs. 8000/-" },
     ],
     extraCharges: [
       { label: "Extra Kms", price: "Rs. 35/-" },
