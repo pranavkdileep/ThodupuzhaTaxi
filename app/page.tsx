@@ -115,7 +115,7 @@ const taxisData: Taxi[] = [
     description:
       "Comfortable & spacious. Perfect for families, business trips, and longer journeys across Kerala.",
     pricing: [
-      { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1000/-" },
+      { durationDistance: "4 Hrs / 40 Kms", price: "Rs. 1300/-" },
       { durationDistance: "8 Hrs / 80 Kms", price: "Rs. 2500/-" },
       { durationDistance: "12 Hrs / 120 Kms", price: "Rs. 3000/-" },
     ],
@@ -134,10 +134,11 @@ const taxisData: Taxi[] = [
     description:
       "Ideal for larger groups. Spacious seating for up to 12 passengers, perfect for family trips, weddings, and corporate events.",
     pricing: [
+      { durationDistance: "17 Seat 8 Hrs / 80Kms", price: "Rs. 7000/-" },
       { durationDistance: "100Kms", price: "Rs. 8000/-" },
     ],
     extraCharges: [
-      { label: "Extra Kms", price: "Rs. 40/-" },
+      { label: "Extra Kms", price: "Rs. 35/-" },
     ],
   },
 ];
@@ -365,6 +366,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <TourPackagesSlider />
+
         <section id="our-services" className="py-12 md:py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12 text-primary">
@@ -403,7 +406,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <TourPackagesSlider />
+        
 
         <section id="fleet-rates" className="py-12 md:py-16 bg-black/30">
           <div className="container mx-auto px-4">
