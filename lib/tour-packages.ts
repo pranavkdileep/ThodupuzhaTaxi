@@ -11,8 +11,13 @@ export interface TourPackage {
   longDescription: string;
   image: string;
   images: string[];
+  keywords: string[];
   highlights: string[];
   inclusions: string[];
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export const tourVehicleRates: TourVehicleRate[] = [
@@ -43,6 +48,13 @@ export const tourPackages: TourPackage[] = [
       "/media/tour/munnar/4.jpg",
       "/media/tour/munnar/5.jpg",
     ],
+    keywords: [
+      "Munnar tour package",
+      "Munnar taxi from Thodupuzha",
+      "Munnar cab package",
+      "Munnar sightseeing taxi",
+      "Kerala hill station taxi",
+    ],
     highlights: [
       "Expansive tea gardens and plantation walks",
       "Waterfalls, dams, and scenic photo points",
@@ -56,6 +68,23 @@ export const tourPackages: TourPackage[] = [
       "Vehicle options from sedan to traveller",
       "Custom route planning assistance",
       "Fuel, toll, and driver charges included",
+    ],
+    faqs: [
+      {
+        question: "Do you provide Munnar cab packages from Thodupuzha?",
+        answer:
+          "Yes, we provide private cab packages from Thodupuzha and nearby areas to Munnar with flexible pickup, sightseeing stops, and return timing.",
+      },
+      {
+        question: "Which places can be covered in a Munnar day trip?",
+        answer:
+          "Common stops include tea gardens, Mattupetty Dam, Echo Point, Kundala Lake, Top Station, waterfalls, and scenic viewpoints depending on your schedule.",
+      },
+      {
+        question: "Can the Munnar itinerary be customized?",
+        answer:
+          "Yes, the route and stops can be customized based on your pickup point, travel time, vehicle type, and preferred attractions.",
+      },
     ],
   },
   {
@@ -74,6 +103,13 @@ export const tourPackages: TourPackage[] = [
       "/media/tour/alappuzha/4.jpg",
       "/media/tour/alappuzha/5.jpg",
     ],
+    keywords: [
+      "Alappuzha tour package",
+      "Alleppey taxi package",
+      "Alappuzha backwaters cab",
+      "houseboat taxi Kerala",
+      "Alappuzha cab from Thodupuzha",
+    ],
     highlights: [
       "Houseboat cruise on Vembanad Lake",
       "Palm-fringed canal and backwater views",
@@ -87,6 +123,23 @@ export const tourPackages: TourPackage[] = [
       "Flexible pickup and drop locations",
       "Vehicle choice based on group size",
       "Customizable sightseeing stops",
+    ],
+    faqs: [
+      {
+        question: "Do you arrange cab travel for Alappuzha houseboat trips?",
+        answer:
+          "Yes, we provide private cab service to Alappuzha for houseboat boarding points, backwater sightseeing, beach visits, and return travel.",
+      },
+      {
+        question: "Is Alappuzha suitable for a one-day trip from Thodupuzha?",
+        answer:
+          "Yes, Alappuzha is suitable for a day trip with early pickup, backwater or houseboat time, local sightseeing, and return in the evening.",
+      },
+      {
+        question: "Can the cab wait during the houseboat cruise?",
+        answer:
+          "Yes, waiting time can be planned based on the duration of your cruise and the final trip schedule.",
+      },
     ],
   },
   {
@@ -105,6 +158,13 @@ export const tourPackages: TourPackage[] = [
       "/media/tour/thekkady/4.jpg",
       "/media/tour/thekkady/5.jpg",
     ],
+    keywords: [
+      "Thekkady tour package",
+      "Thekkady taxi from Thodupuzha",
+      "Periyar Tiger Reserve cab",
+      "Thekkady spice plantation tour",
+      "Thekkady wildlife taxi package",
+    ],
     highlights: [
       "Boat safari at Periyar Tiger Reserve",
       "Wildlife spotting — elephants, bison, deer",
@@ -118,6 +178,23 @@ export const tourPackages: TourPackage[] = [
       "Flexible timing for safari and plantation visits",
       "Multiple vehicle options available",
       "Custom itinerary support",
+    ],
+    faqs: [
+      {
+        question: "Do you provide taxi service to Thekkady and Periyar Tiger Reserve?",
+        answer:
+          "Yes, we offer private cabs to Thekkady for Periyar boating, wildlife sightseeing, spice plantation visits, and local attractions.",
+      },
+      {
+        question: "Can you plan the trip around Periyar boating timings?",
+        answer:
+          "Yes, pickup and sightseeing timing can be adjusted around your boating or safari slot when shared in advance.",
+      },
+      {
+        question: "Is Thekkady good for family trips?",
+        answer:
+          "Yes, Thekkady is family-friendly with boating, plantation tours, cultural shows, shopping, and nature-based sightseeing.",
+      },
     ],
   },
   {
@@ -136,6 +213,13 @@ export const tourPackages: TourPackage[] = [
       "/media/tour/varkala/4.jpg",
       "/media/tour/varkala/5.jpg",
     ],
+    keywords: [
+      "Varkala tour package",
+      "Varkala taxi from Thodupuzha",
+      "Varkala beach cab package",
+      "Varkala cliff tour taxi",
+      "Kerala beach taxi package",
+    ],
     highlights: [
       "Scenic cliff-top views of the Arabian Sea",
       "Mineral spring bathing at the beach",
@@ -149,6 +233,23 @@ export const tourPackages: TourPackage[] = [
       "Pickup and drop at your convenience",
       "Vehicle suited to your group size",
       "Flexible stopover planning",
+    ],
+    faqs: [
+      {
+        question: "Do you provide cab packages to Varkala Beach?",
+        answer:
+          "Yes, we provide private cab packages to Varkala Beach and Cliff with flexible pickup, sightseeing time, and return travel.",
+      },
+      {
+        question: "What are the main places covered in Varkala?",
+        answer:
+          "Popular stops include Varkala Cliff, Papanasam Beach, Janardhana Swamy Temple, Sivagiri Mutt, and sunset viewpoints.",
+      },
+      {
+        question: "Can Varkala be planned as an overnight trip?",
+        answer:
+          "Yes, we can arrange one-way, round-trip, or multi-day cab service depending on your stay plan.",
+      },
     ],
   },
   {
@@ -167,6 +268,13 @@ export const tourPackages: TourPackage[] = [
       "/media/tour/kovalam/4.jpg",
       "/media/tour/kovalam/5.jpg",
     ],
+    keywords: [
+      "Kovalam tour package",
+      "Kovalam taxi from Thodupuzha",
+      "Kovalam beach cab package",
+      "Kovalam lighthouse taxi",
+      "Trivandrum beach taxi package",
+    ],
     highlights: [
       "Three beautiful crescent beaches",
       "Vizhinjam Lighthouse with sea views",
@@ -181,6 +289,23 @@ export const tourPackages: TourPackage[] = [
       "Vehicle options for all group sizes",
       "Driver assistance for local guidance",
     ],
+    faqs: [
+      {
+        question: "Do you offer Kovalam beach taxi packages?",
+        answer:
+          "Yes, we provide private cab service to Kovalam for Lighthouse Beach, Hawah Beach, Samudra Beach, and nearby Trivandrum attractions.",
+      },
+      {
+        question: "Can Kovalam and Padmanabhaswamy Temple be covered together?",
+        answer:
+          "Yes, Kovalam can be combined with Padmanabhaswamy Temple and other Trivandrum stops based on your trip timing.",
+      },
+      {
+        question: "Do you provide airport pickup for Kovalam trips?",
+        answer:
+          "Yes, we can arrange pickup or drop at Trivandrum airport as part of your Kovalam travel plan.",
+      },
+    ],
   },
   {
     slug: "pilgrimage-tour",
@@ -193,13 +318,20 @@ export const tourPackages: TourPackage[] = [
     image: "/media/tour/pilgrimage/1.jpg",
     images: [
       "/media/tour/pilgrimage/1.jpg",
-      "/media/tour/pilgrimage/2.jpg",
+      "/media/tour/pilgrimage/church-kochi.jpg",
+      "/media/tour/pilgrimage/church-kasaragod.jpg",
+      "/media/tour/pilgrimage/mosque.jpg",
       "/media/tour/pilgrimage/3.jpg",
-      "/media/tour/pilgrimage/4.jpg",
-      "/media/tour/pilgrimage/5.jpg",
+    ],
+    keywords: [
+      "Kerala pilgrimage tour package",
+      "Kerala temple taxi service",
+      "Sabarimala taxi package",
+      "Guruvayur taxi from Thodupuzha",
+      "Kerala church and mosque pilgrimage cab",
     ],
     highlights: [
-      "Coverage of major temples and churches",
+      "Coverage of temples, churches, and mosques",
       "Sabarimala and Guruvayur visit options",
       "Early morning and late-night travel support",
       "Elderly-friendly travel arrangements",
@@ -211,6 +343,23 @@ export const tourPackages: TourPackage[] = [
       "Multiple vehicle types available",
       "Support for one-day and multi-day plans",
       "Custom itinerary based on your preferences",
+    ],
+    faqs: [
+      {
+        question: "Can you arrange customized Kerala pilgrimage taxi routes?",
+        answer:
+          "Yes, we customize pilgrimage routes for temples, churches, mosques, and other spiritual sites based on your preferred destinations and dates.",
+      },
+      {
+        question: "Do you provide early morning pickup for temple visits?",
+        answer:
+          "Yes, early morning and late-night travel can be arranged for temple timings, darshan schedules, and group requirements.",
+      },
+      {
+        question: "Is the pilgrimage package suitable for elders?",
+        answer:
+          "Yes, we provide comfortable vehicles and flexible stops to make the journey easier for elders and families.",
+      },
     ],
   },
   {
@@ -228,6 +377,13 @@ export const tourPackages: TourPackage[] = [
       "/media/tour/vagamon/3.jpg",
       "/media/tour/vagamon/4.jpg",
     ],
+    keywords: [
+      "Vagamon tour package",
+      "Vagamon taxi from Thodupuzha",
+      "Vagamon hill station cab",
+      "Vagamon meadows taxi",
+      "Vagamon pine forest tour",
+    ],
     highlights: [
       "Rolling green meadows and pine forests",
       "Panoramic viewpoints and misty hills",
@@ -241,6 +397,23 @@ export const tourPackages: TourPackage[] = [
       "Vehicle options for all group sizes",
       "Custom route planning support",
       "Flexible return timing",
+    ],
+    faqs: [
+      {
+        question: "Do you provide Vagamon cab packages from Thodupuzha?",
+        answer:
+          "Yes, we provide private cab packages from Thodupuzha to Vagamon with stops at meadows, pine forest, viewpoints, and nearby attractions.",
+      },
+      {
+        question: "What places can be covered in Vagamon?",
+        answer:
+          "Common attractions include Vagamon Meadows, Pine Forest, Kurisumala Ashram, Thangal Para, Vagamon Lake, tea plantations, and viewpoints.",
+      },
+      {
+        question: "Is Vagamon good for a one-day family trip?",
+        answer:
+          "Yes, Vagamon is ideal for a one-day family trip, nature drive, picnic, and relaxed sightseeing from Thodupuzha and nearby areas.",
+      },
     ],
   },
 ];

@@ -2,12 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ArrowLeftIcon, CheckCircleIcon, PhoneIcon } from "lucide-react";
+import { ArrowLeftIcon, CheckCircleIcon, ChevronRightIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TourImageSlider } from "@/components/tour-image-slider";
 import { getTourPackage, tourPackages, tourVehicleRates } from "@/lib/tour-packages";
 
 const WHATSAPP_CONTACT_NUMBER = "917306392309";
+const SITE_URL = "https://thodupuzhataxi.com";
+const BUSINESS_NAME = "Pazheri Cab Service";
+
+function getAbsoluteUrl(path: string) {
+  return new URL(path, SITE_URL).toString();
+}
 
 interface TourPageProps {
   params: Promise<{
@@ -32,8 +38,32 @@ export async function generateMetadata({ params }: TourPageProps): Promise<Metad
   return {
     title: `${tourPackage.title} Tour Package | Pazheri Cab Service`,
     description: tourPackage.description,
+    keywords: tourPackage.keywords,
+    alternates: {
+      canonical: tourPackage.url,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
-      title: `${tourPackage.title} Tour Package`,
+      title: `${tourPackage.title} Tour Package | ${BUSINESS_NAME}`,
+      description: tourPackage.description,
+      url: tourPackage.url,
+      siteName: "Thodupuzha Taxi",
+      type: "website",
+      images: [
+        {
+          url: tourPackage.image,
+          width: 1200,
+          height: 630,
+          alt: `${tourPackage.title} tour package by ${BUSINESS_NAME}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${tourPackage.title} Tour Package | ${BUSINESS_NAME}`,
       description: tourPackage.description,
       images: [tourPackage.image],
     },
@@ -51,9 +81,80 @@ export default async function TourPackagePage({ params }: TourPageProps) {
   const whatsappLink = `https://wa.me/${WHATSAPP_CONTACT_NUMBER}?text=${encodeURIComponent(
     `Hello, I need more details about the ${tourPackage.title} tour package.`
   )}`;
+  const canonicalUrl = getAbsoluteUrl(tourPackage.url);
+  const primaryImageUrl = getAbsoluteUrl(tourPackage.image);
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Tour Packages",
+          item: `${SITE_URL}/#tour-packages`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: tourPackage.title,
+          item: canonicalUrl,
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: `${tourPackage.title} Tour Package`,
+      description: tourPackage.description,
+      image: primaryImageUrl,
+      url: canonicalUrl,
+      category: "Tour Package",
+      brand: {
+        "@type": "Brand",
+        name: BUSINESS_NAME,
+      },
+      offers: tourVehicleRates.map((rate) => ({
+        "@type": "Offer",
+        name: rate.vehicle,
+        priceCurrency: "INR",
+        price: rate.rate.replace(/[^0-9]/g, ""),
+        availability: "https://schema.org/InStock",
+        url: canonicalUrl,
+        seller: {
+          "@type": "LocalBusiness",
+          name: BUSINESS_NAME,
+          telephone: `+${WHATSAPP_CONTACT_NUMBER}`,
+          areaServed: "Kerala, India",
+        },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: tourPackage.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  ];
 
   return (
     <main className="min-h-dvh bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="relative overflow-hidden bg-card">
         <div className="absolute inset-0 opacity-25">
           <Image
@@ -68,6 +169,23 @@ export default async function TourPackagePage({ params }: TourPageProps) {
         </div>
 
         <div className="container relative mx-auto px-4 py-10 md:py-16">
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex flex-wrap items-center gap-2 text-sm text-foreground/75"
+          >
+            <Link href="/" className="transition-colors hover:text-primary">
+              Home
+            </Link>
+            <ChevronRightIcon size={16} className="text-primary/70" />
+            <Link href="/#tour-packages" className="transition-colors hover:text-primary">
+              Tour Packages
+            </Link>
+            <ChevronRightIcon size={16} className="text-primary/70" />
+            <span className="text-primary" aria-current="page">
+              {tourPackage.title}
+            </span>
+          </nav>
+
           <Button
             asChild
             variant="outline"
@@ -173,6 +291,28 @@ export default async function TourPackagePage({ params }: TourPageProps) {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-12 md:pb-16">
+        <div className="container mx-auto px-4">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-lg md:p-8">
+            <h2 className="text-2xl font-bold text-primary md:text-3xl">
+              Frequently Asked Questions
+            </h2>
+            <div className="mt-6 divide-y divide-border">
+              {tourPackage.faqs.map((faq) => (
+                <details key={faq.question} className="group py-4">
+                  <summary className="cursor-pointer list-none text-lg font-semibold text-foreground transition-colors hover:text-primary">
+                    <span>{faq.question}</span>
+                  </summary>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
             </div>
           </div>
         </div>
