@@ -128,7 +128,7 @@ const taxisData: Taxi[] = [
   },
   {
     id: "traveller-pazheri",
-    name: "Traveller/ Urbania",
+    name: "Traveller / Urbania",
     images: ["/taxi/Traveller/urbania.png","/taxi/Traveller/traveller.png"],
     imageAlt: "Traveller taxi for Pazheri Cab Service",
     description:
